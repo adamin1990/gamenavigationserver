@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	     xmlns:aop="http://www.springframework.org/schema/aop"
+	     xmlns:tx="http://www.springframework.org/schema/tx"
+	     xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+<aop:aspectj-autoproxy />
+<!-- /*************Action类********************/ -->
+<bean id="categoryAction" class="com.gah.navigation.action.CategoryAction" scope="prototype">
+	<property name="categoryService">
+		<ref bean="categoryService"></ref>
+	</property>
+</bean> 
+
+<bean id="gameAction" class="com.gah.navigation.action.GameAction" scope="prototype">
+	<property name="gameService">
+		<ref bean="gameService"></ref>
+	</property>
+	<property name="storeService">
+		<ref bean="storeService"/>
+	</property>
+	<property name="categoryService">
+		<ref bean="categoryService"/>
+	</property>
+	<property name="releaseService">
+		<ref bean="releaseService"/>
+	</property>
+</bean> 
+
+<bean id="managerAction" class="com.gah.navigation.action.ManagerAction" scope="prototype">
+	<property name="managerService">
+		<ref bean="managerService"/>
+	</property>
+	
+</bean>
+
+<bean id="storeAction" class="com.gah.navigation.action.StoreAction" scope="prototype">
+	<property name="storeService">
+		<ref bean="storeService"></ref>
+	</property>
+</bean>  
+
+<bean id="pictureAction" class="com.gah.navigation.action.PictureAction" scope="prototype">
+	<property name="pictureService">
+		<ref bean="pictureService"></ref>
+	</property>
+	<property name="gameService">
+		<ref bean="gameService"></ref>
+	</property>
+	<property name="categoryService">
+		<ref bean="categoryService"></ref>
+	</property>
+</bean> 
+
+<bean id="releaseAction" class="com.gah.navigation.action.ReleaseAction" scope="prototype">
+	<property name="releaseService">
+		<ref bean="releaseService"></ref>
+	</property>
+</bean> 
+<bean id="mobileAction" class="com.gah.navigation.action.MobileAction" scope="prototype">
+	<property name="gameService">
+		<ref bean="gameService"></ref>
+	</property>
+	<property name="pictureService">
+		<ref bean="pictureService"></ref>
+	</property>
+	<property name="categoryService">
+		<ref bean="categoryService"></ref>
+	</property>
+</bean> 
+
+</beans>

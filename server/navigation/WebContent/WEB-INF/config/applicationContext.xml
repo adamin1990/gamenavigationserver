@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop-2.5.xsd" default-lazy-init="true">
+<!-- 配置数据库连接池 -->
+<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+	<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+	<property name="url" value="jdbc:mysql://127.0.0.1:3306/games?useUnicode=true&amp;characterEncoding=utf-8"></property>
+	<property name="username" value="root"></property>
+	<property name="password" value="root"></property>
+	<property name="defaultAutoCommit" value="true"></property>
+</bean>
+
+<!-- 配置sessionFactory -->
+<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+	<property name="dataSource" ref="dataSource"></property>
+	
+	<property name="hibernateProperties">
+		<props>
+			<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+			<prop key="hibernate.show_sql">false</prop>
+			<prop key="hibernate.hbm2ddl.auto">update</prop>
+			<!-- <prop key="hibernate.cache.use_second_level_cache">true</prop> <prop key="hibernate.cache.use_query_cache">true</prop>
+			<prop key="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</prop>-->
+		</props>
+	</property>
+	
+	<property name="mappingResources">
+		<list>
+		<value>com/gah/navigation/bean/Category.hbm.xml</value>
+		 <value>com/gah/navigation/bean/Game.hbm.xml</value>
+		 <value>com/gah/navigation/bean/Manager.hbm.xml</value>
+		 <value>com/gah/navigation/bean/Picture.hbm.xml</value>
+		 <value>com/gah/navigation/bean/ReleaseMan.hbm.xml</value>
+		 <value>com/gah/navigation/bean/Store.hbm.xml</value>
+		</list>
+	</property>
+</bean>
+<!--  定义事务管理器，使用适用于Hibernte的事务管理器--> 
+<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager"> 
+    <!--  HibernateTransactionManager  bean需要依赖注入一个SessionFactory bean的引用--> 
+    <property name="sessionFactory"><ref local="sessionFactory"/></property> 
+</bean>
+</beans>

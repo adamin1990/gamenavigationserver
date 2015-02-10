@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping>
+
+	<class name="com.gah.navigation.bean.Game" table="game"
+		lazy="false">
+
+		<id name="id" type="java.lang.Integer" column="id">
+			<generator class="native" />
+		</id>
+		<property name="name" type="java.lang.String" column="name"
+			not-null="true" length="255" />   
+			
+		<many-to-one name="store"
+			class="com.gah.navigation.bean.Store" cascade="none"
+			column="storeid" outer-join="false" lazy="false" />	
+	 	<many-to-one name="category"
+			class="com.gah.navigation.bean.Category" cascade="none"
+			column="cateid" outer-join="false" lazy="false" />
+		 <many-to-one name="releaseMan"
+			class="com.gah.navigation.bean.ReleaseMan" cascade="none"
+			column="releaseid" outer-join="false" lazy="false" />  
+		<property name="versions" type="java.lang.String" column="versions"
+			not-null="false" length="50" />
+		<property name="description" type="java.lang.String" column="description"
+			not-null="false" />
+			<property name="belong" type="java.lang.String" column="belong"
+			not-null="false" length="45" />
+			
+		<property name="releasetime" type="java.sql.Timestamp" column="releasetime"
+			not-null="false" length="45" />  	
+			
+		<property name="size" type="java.lang.String" column="size"
+			not-null="false" length="11" />
+		<property name="flag" type="java.lang.String" column="flag"
+			not-null="false" length="45" />
+		<property name="loadnum" type="java.lang.String" column="loadnum"
+			not-null="false" length="255" />
+		<property name="loadurl" type="java.lang.String" column="loadurl"
+			not-null="true" length="255" />
+		<!-- Associations -->
+
+
+	</class>
+</hibernate-mapping>

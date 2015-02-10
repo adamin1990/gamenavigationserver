@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	     xmlns:aop="http://www.springframework.org/schema/aop"
+	     xmlns:tx="http://www.springframework.org/schema/tx"
+	     xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+<aop:aspectj-autoproxy />
+	<!-- /************************Dao *********************/ -->
+<bean id="categoryDao" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean" scope ="prototype">
+	<!-- 注入事务管理类 -->
+	<property name="transactionManager"><ref bean="transactionManager"></ref></property>					
+	<!-- 设置事务属性 -->
+	<property name="transactionAttributes">
+		<!-- 所有以find开头的方法， 均为required readonly策略 ；其他采用required策略-->
+		<props>
+			<prop key="find*">PROPAGATION_REQUIRED,readOnly</prop>
+			<prop key="*">PROPAGATION_REQUIRED</prop>
+		</props>
+	</property>
+	
+	<!-- 设置目标bean -->
+	<property name="target">
+		<!-- 采用嵌套bean配置目标bean -->
+		<bean class="com.gah.navigation.dao.impl.CategoryDaoImpl">
+			<!-- 为Dao bean注入sessionFactory -->	
+			<property name="sessionFactory"><ref bean="sessionFactory"></ref></property>
+		</bean>
+	</property> 
+</bean>
+
+<bean id="gameDao" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean" scope ="prototype">
+	<!-- 注入事务管理类 -->
+	<property name="transactionManager"><ref bean="transactionManager"></ref></property>					
+	<!-- 设置事务属性 -->
+	<property name="transactionAttributes">
+		<!-- 所有以find开头的方法， 均为required readonly策略 ；其他采用required策略-->
+		<props>
+			<prop key="find*">PROPAGATION_REQUIRED,readOnly</prop>
+			<prop key="*">PROPAGATION_REQUIRED</prop>
+		</props>
+	</property>
+	
+	<!-- 设置目标bean -->
+	<property name="target">
+		<!-- 采用嵌套bean配置目标bean -->
+		<bean class="com.gah.navigation.dao.impl.GameDaoImpl">
+			<!-- 为Dao bean注入sessionFactory -->	
+			<property name="sessionFactory"><ref bean="sessionFactory"></ref></property>
+		</bean>
+	</property> 
+</bean>
+
+<bean id="managerDao" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean" scope ="prototype">
+	<!-- 注入事务管理类 -->
+	<property name="transactionManager"><ref bean="transactionManager"></ref></property>					
+	<!-- 设置事务属性 -->
+	<property name="transactionAttributes">
+		<!-- 所有以find开头的方法， 均为required readonly策略 ；其他采用required策略-->
+		<props>
+			<prop key="find*">PROPAGATION_REQUIRED,readOnly</prop>
+			<prop key="*">PROPAGATION_REQUIRED</prop>
+		</props>
+	</property>
+	
+	<!-- 设置目标bean -->
+	<property name="target">
+		<!-- 采用嵌套bean配置目标bean -->
+		<bean class="com.gah.navigation.dao.impl.ManagerDaoImpl">
+			<!-- 为Dao bean注入sessionFactory -->	
+			<property name="sessionFactory"><ref bean="sessionFactory"></ref></property>
+		</bean>
+	</property> 
+</bean>
+
+<bean id="storeDao" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean" scope ="prototype">
+	<!-- 注入事务管理类 -->
+	<property name="transactionManager"><ref bean="transactionManager"></ref></property>					
+	<!-- 设置事务属性 -->
+	<property name="transactionAttributes">
+		<!-- 所有以find开头的方法， 均为required readonly策略 ；其他采用required策略-->
+		<props>
+			<prop key="find*">PROPAGATION_REQUIRED,readOnly</prop>
+			<prop key="*">PROPAGATION_REQUIRED</prop>
+		</props>
+	</property>
+	
+	<!-- 设置目标bean -->
+	<property name="target">
+		<!-- 采用嵌套bean配置目标bean -->
+		<bean class="com.gah.navigation.dao.impl.StoreDaoImpl">
+			<!-- 为Dao bean注入sessionFactory -->	
+			<property name="sessionFactory"><ref bean="sessionFactory"></ref></property>
+		</bean>
+	</property> 
+</bean>
+
+<bean id="releaseDao" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean" scope ="prototype">
+	<!-- 注入事务管理类 -->
+	<property name="transactionManager"><ref bean="transactionManager"></ref></property>					
+	<!-- 设置事务属性 -->
+	<property name="transactionAttributes">
+		<!-- 所有以find开头的方法， 均为required readonly策略 ；其他采用required策略-->
+		<props>
+			<prop key="find*">PROPAGATION_REQUIRED,readOnly</prop>
+			<prop key="*">PROPAGATION_REQUIRED</prop>
+		</props>
+	</property>
+	
+	<!-- 设置目标bean -->
+	<property name="target">
+		<!-- 采用嵌套bean配置目标bean -->
+		<bean class="com.gah.navigation.dao.impl.ReleaseDaoImpl">
+			<!-- 为Dao bean注入sessionFactory -->	
+			<property name="sessionFactory"><ref bean="sessionFactory"></ref></property>
+		</bean>
+	</property> 
+</bean>
+
+<bean id="pictureDao" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean" scope ="prototype">
+	<!-- 注入事务管理类 -->
+	<property name="transactionManager"><ref bean="transactionManager"></ref></property>					
+	<!-- 设置事务属性 -->
+	<property name="transactionAttributes">
+		<!-- 所有以find开头的方法， 均为required readonly策略 ；其他采用required策略-->
+		<props>
+			<prop key="find*">PROPAGATION_REQUIRED,readOnly</prop>
+			<prop key="*">PROPAGATION_REQUIRED</prop>
+		</props>
+	</property>
+	
+	<!-- 设置目标bean -->
+	<property name="target">
+		<!-- 采用嵌套bean配置目标bean -->
+		<bean class="com.gah.navigation.dao.impl.PictureDaoImpl">
+			<!-- 为Dao bean注入sessionFactory -->	
+			<property name="sessionFactory"><ref bean="sessionFactory"></ref></property>
+		</bean>
+	</property> 
+</bean>
+
+
+
+</beans>

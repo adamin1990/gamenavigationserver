@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!-- 解决中文乱码 -->
+	<constant name="struts.i18n.encoding" value="utf-8"></constant>
+	<constant name="struts.custom.i18n.resources" value="messageResource"/>
+	<constant name="struts.multipart.maxSize" value="10485760" />
+	<constant name="struts.ui.theme" value="simple"/>
+	<package name="struts" extends="struts-default" namespace="/">
+		<!--  设置全局默认  -->
+		<global-results>
+			<result name="login"></result>
+			<result name="exception"></result>
+		</global-results>
+		
+		<global-exception-mappings>
+			<!-- 指Action抛出AuctionException异常时，转入名为exception的结果。 -->
+			<exception-mapping exception="com.qd.navigation.common.exception.NavigationException" result="exception"/>
+			<!-- 指Action抛出Exception异常时，转入名为exception的结果。 -->
+			<exception-mapping exception="java.lang.Exception" result="exception"/>
+		</global-exception-mappings>
+		<action name="test" class="gameAction" method="test">
+			<result name="success">/index.jsp</result>
+		</action>
+		<action name="findAllGame" class="gameAction" method="findAllGame">
+			<result name="success">/jsp/admin/man/game/game_manager.jsp</result>
+		</action>
+		<action name="manager" class="managerAction" method="manager">
+			<result name="success">/jsp/admin/man/manager.jsp</result>
+			<result name="error">/jsp/admin/man/login.jsp</result>
+		</action>
+		<action name="delete" class="gameAction" method="deleteByIds">
+			<result name="success">/jsp/admin/man/game/game_manager.jsp</result>
+		</action>
+		<action name="findGameById" class="gameAction" method="findGameById">
+			<result name="success">/jsp/admin/man/game/game_release.jsp</result>
+		</action>
+		<action name="add" class="gameAction" method="add">
+			<result name="success">/jsp/admin/man/game/game_release.jsp</result>
+		</action>
+		<action name="search" class="gameAction" method="search">
+			<result name="success">/jsp/admin/man/game/game_manager.jsp</result>
+		</action>
+		<action name="releasegame" class="gameAction" method="updateOrAdd">
+			<result name="success">/jsp/admin/man/game/game_manager.jsp</result>
+		</action>
+		
+		<action name="findAllCategory" class="categoryAction" method="findAllCategory">
+			<result name="success">/jsp/admin/man/category/category_manager.jsp</result>
+		</action>
+		<action name="deleteCategory" class="categoryAction" method="deleteCategoryById">
+			<result name="success">/jsp/admin/man/category/category_manager.jsp</result>
+		</action>
+		<action name="addCategory" class="categoryAction" method="add">
+			<result name="success">/jsp/admin/man/category/category_release.jsp</result>
+		</action>
+		<action name="findCategoryById" class="categoryAction" method="findCategoryById">
+			<result name="success">/jsp/admin/man/category/category_release.jsp</result>
+		</action> 
+		<action name="releasecategory" class="categoryAction" method="saveOrUpdate">
+			<result name="success">/jsp/admin/man/category/category_manager.jsp</result>
+		</action>
+		
+		
+		<action name="findAllRelease" class="releaseAction" method="findAllRelease">
+			<result name="success">/jsp/admin/man/release/release_manager.jsp</result>
+		</action>
+		<action name="deleteRelease" class="releaseAction" method="deleteByIds">
+			<result name="success">/jsp/admin/man/release/release_manager.jsp</result>
+		</action>
+		<action name="addRelease" class="releaseAction" method="add">
+			<result name="success">/jsp/admin/man/release/release_release.jsp</result>
+		</action>
+		<action name="findReleaseById" class="releaseAction" method="findReleaseById">
+			<result name="success">/jsp/admin/man/release/release_release.jsp</result>
+		</action> 
+		<action name="releaseRelease" class="releaseAction" method="saveOrUpdate">
+			<result name="success">/jsp/admin/man/release/release_manager.jsp</result>
+		</action>
+		
+		
+		<action name="findAllManager" class="managerAction" method="findAllManager">
+			<result name="success">/jsp/admin/man/manager/manager_manager.jsp</result>
+		</action>
+		<action name="deleteManager" class="managerAction" method="deleteByIds">
+			<result name="success">/jsp/admin/man/manager/manager_manager.jsp</result>
+		</action>
+		<action name="addManager" class="managerAction" method="add">
+			<result name="success">/jsp/admin/man/manager/manager_release.jsp</result>
+		</action>
+		<action name="findManagerById" class="managerAction" method="findManagerById">
+			<result name="success">/jsp/admin/man/manager/manager_release.jsp</result>
+		</action> 
+		<action name="releaseManager" class="managerAction" method="saveOrUpdate">
+			<result name="success">/jsp/admin/man/manager/manager_manager.jsp</result>
+		</action>
+		
+		<action name="findAllStore" class="storeAction" method="findAllStore">
+			<result name="success">/jsp/admin/man/store/store_manager.jsp</result>
+		</action>
+		<action name="deleteStore" class="storeAction" method="deleteByIds">
+			<result name="success">/jsp/admin/man/store/store_manager.jsp</result>
+		</action>
+		<action name="addStore" class="storeAction" method="add">
+			<result name="success">/jsp/admin/man/store/store_release.jsp</result>
+		</action>
+		<action name="findStoreById" class="storeAction" method="findStoreById">
+			<result name="success">/jsp/admin/man/store/store_release.jsp</result>
+		</action> 
+		<action name="releaseStore" class="storeAction" method="saveOrUpdate">
+			<result name="success">/jsp/admin/man/store/store_manager.jsp</result>
+		</action>
+		
+		<action name="findAllPicture" class="pictureAction" method="findAllPicture">
+			<result name="success">/jsp/admin/man/picture/picture_manager.jsp</result>
+		</action>
+		<action name="deletePicture" class="pictureAction" method="deleteByIds">
+			<result name="success">/jsp/admin/man/picture/picture_manager.jsp</result>
+		</action>
+		<action name="addPicture" class="pictureAction" method="add">
+			<result name="success">/jsp/admin/man/picture/picture_release.jsp</result>
+		</action>
+		<action name="findPictureById" class="pictureAction" method="findPictureById">
+			<result name="success">/jsp/admin/man/picture/picture_release.jsp</result>
+		</action> 
+		<action name="releasePicture" class="pictureAction" method="saveOrUpdate">
+		 
+			<result name="success">/jsp/admin/man/picture/picture_manager.jsp</result>
+		</action> 
+		<action name="searchPicture" class="pictureAction" method="search">
+			<result name="success">/jsp/admin/man/picture/picture_manager.jsp</result>
+		</action>
+		
+		<action name="findPictures" class="pictureAction" method="findPictureByGame">
+			<result name="success">/jsp/admin/man/picture/picture_manager.jsp</result>
+		</action>
+		
+	</package>
+	 
+	<package name="manJson" namespace="/manjson" extends="json-default">
+		<action name="loginAction" class="managerAction" method="login_man">
+			<result type="json"></result>
+		</action>
+		<action name="checkname" class="gameAction" method="checkReleaseName">
+			<result type="json"></result>
+		</action>
+		<action name="checkgamename" class="pictureAction" method="checkGameName">
+			<result type="json"></result>
+		</action>
+	</package> 
+	<!-- game -->
+	<package name="mobileJson" namespace="/mobilejson" extends="json-default">
+		<action name="getGameForPage" class="mobileAction" method="getGameForPage">
+			<result type="json"></result>
+		</action>
+		<action name="getGamePictureForPage" class="mobileAction" method="getGamePictureForPage">
+			<result type="json"></result>
+		</action>
+		<action name="getGamePictureForPage_SP" class="mobileAction" method="getGamePictureForPage_SP">
+			<result type="json"></result>
+		</action>
+		<action name="getGameForPageByCate" class="mobileAction" method="getGameForPageByCate">
+			<result type="json"></result>
+		</action>
+		<action name="getExampleGameByCate" class="mobileAction" method="getExampleGameByCate">
+			<result type="json"></result>
+		</action>
+		<action name="getGameById" class="mobileAction" method="getGameById">
+			<result type="json"></result>
+		</action> 
+		<action name="getGamePictureById" class="mobileAction" method="getGamePictureById">
+			<result type="json"></result>
+		</action>
+		<action name="getAllCategory" class="mobileAction" method="getAllCategory">
+			<result type="json"></result>
+		</action>
+		<action name="searchGameByCondition" class="mobileAction" method="searchGameByCondition">
+			<result type="json"></result>
+		</action>
+		<action name="findCateAndGames" class="mobileAction" method="findCateAndGames">
+			<result type="json"></result>
+		</action>
+	</package>
+	
+</struts>

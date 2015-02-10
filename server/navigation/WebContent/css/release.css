@@ -1,0 +1,128 @@
+﻿body {
+	color: #595757;
+}
+body {
+	font: 12px/150% "\5B8B\4F53",Arial,Helvetica,sans-serif;
+}
+.left {
+	float: left;
+	width: 275px;
+	height: auto !important;
+	border-right: 1px solid #ccc;
+}
+.left .userHead {
+	position: relative;
+	height: 200px;
+	margin: 9px 0 19px 15px
+}
+
+.left .uh_edit {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 200px;
+	height: 22px
+}
+
+.left .uh_edit span {
+	display: block;
+	height: 22px;
+	background: #333;
+	filter: Alpha(Opacity = 80);
+	opacity: .8;
+}
+
+.left .uh_edit a {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 120px;
+	height: 20px;
+	border-top: solid #656a71 1px;
+	color: #fff;
+	text-align: center;
+}
+
+.nickname {
+	padding: 0 10px;
+	font-size: 12px;
+	font-weight: bold;
+	color: #666;
+	text-align: center;
+	word-wrap: break-word;
+	word-break: break-all
+}
+#rightContainer {
+	float: left;
+	width: 660px;
+}
+.favoriteBg {
+	height: auto!important;
+	height: 800px;
+	min-height: 800px;
+}
+.classification {
+	background-color: #fff;
+	float: left;
+	padding: 0 0 0 10px;
+	width: 660px;
+}
+.f12, h1, h2, h3, h4, select {
+	font-size: 12px;
+}
+h1, h2, h3, h4, h5, h6, ol, dl, dt, dd, ul, li, input, button, form, p, th, td, select {
+	margin: 0;
+	padding: 0;
+}
+.dynD {
+	height: 1px;
+	margin-top: -5px;
+	clear: both;
+	overflow: hidden;
+}
+.dynD {
+	background-color: #ccd3e4;
+}
+.baseInfo {
+	border: 0;
+	border-collapse: collapse;
+	font-size: 14px;
+}
+.fcolor_8, select {
+	color: #595757;
+}
+.clear {
+	clear: both;
+	height: 0;
+	overflow: hidden;
+}
+.baseInfo th {
+	padding: 10px;
+}
+.baseInfo th {
+	font-weight: normal;
+	text-align: right;
+}
+.confirmDelete:hover{
+	color: #fff;
+	text-decoration: none;
+}
+a.confirmDelete{
+	background-color: #3b5998;
+	border-color: #b7caeb #133783 #133783 #b7caeb;
+	border-width: 1px;
+	border-style: solid;
+	color: #fff;
+	cursor: pointer;
+	font-size: 12px;
+	padding: 1px 0;
+	width: 56px;
+}
+.confirmDelete{
+	display: inline-block;
+	height: 18px;
+	line-height: 18px;
+	text-align: center;
+	text-decoration: none;
+	vertical-align: middle;
+}

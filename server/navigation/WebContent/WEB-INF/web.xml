@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	id="WebApp_ID" version="3.0">
+	
+	<!-- 配置hibernateFilter -->
+	<filter>
+		<filter-name>hibernateFilter</filter-name>
+		<filter-class>org.springframework.orm.hibernate3.support.OpenSessionInViewFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>hibernateFilter</filter-name>
+		<url-pattern>*.action</url-pattern>
+	</filter-mapping>
+	
+	
+	<!-- Struts2 的配置 -->
+	<filter>
+		<filter-name>struts2</filter-name>
+		<filter-class>org.apache.struts2.dispatcher.FilterDispatcher</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>struts2</filter-name>
+		<url-pattern>/*</url-pattern>
+		<!-- dispather 在哪种情况下调用，没配置默认是REQUEST -->
+		<dispatcher>FORWARD</dispatcher>
+		<dispatcher>REQUEST</dispatcher> 
+	</filter-mapping> 
+	
+	
+	
+	<!-- 配置application-*.xml的路径 -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/config/applicationContext*.xml</param-value>
+	</context-param>
+	
+	<!-- 配置spring的监听器 -->
+	<listener>
+		<listener-class>
+			org.springframework.web.context.ContextLoaderListener
+		</listener-class>
+	</listener> 
+	<!-- session 时效(单位：分钟；值必须为整数) -->
+	<session-config> 
+    	<session-timeout>240</session-timeout> 
+	</session-config> 
+	<!-- spring的配置文件 结束 -->
+	
+	<welcome-file-list>
+		<welcome-file>/jsp/admin/man/login.jsp</welcome-file>
+	</welcome-file-list>
+</web-app>

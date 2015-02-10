@@ -1,0 +1,13 @@
+A.a03:link {text-decoration:none;color:#ffffff;}
+A.a03:visited {text-decoration:none;color:#ffffff;}
+A.a03:active {text-decoration:none;color:#ffffff;}
+A.a03:hover {text-decoration:underline;color:#ffffff;}
+A:link {
+	COLOR: #039
+}
+A:visited {
+	COLOR: #039
+}
+A:hover {
+	COLOR: #f60
+}
